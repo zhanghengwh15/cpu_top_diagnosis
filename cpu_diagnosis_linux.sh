@@ -275,7 +275,13 @@ analyze_java_tools() {
     
     # 获取线程转储
     log_info "获取线程转储..."
-    local thread_dump_file="/tmp/thread_dump_${pid}_$(date +%Y%m%d_%H%M%S).txt"
+    
+    # 创建thread目录（如果不存在）
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    local thread_dir="${script_dir}/thread"
+    mkdir -p "$thread_dir"
+    
+    local thread_dump_file="${thread_dir}/thread_dump_${pid}_$(date +%Y%m%d_%H%M%S).txt"
     
     # 尝试多种方式获取线程转储
     local dump_success=false
@@ -371,7 +377,12 @@ realtime_monitor() {
 
 # 生成诊断报告 (Linux专用)
 generate_report() {
-    local report_file="/tmp/java_cpu_diagnosis_report_$(date +%Y%m%d_%H%M%S).txt"
+    # 创建报告目录（如果不存在）
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    local report_dir="${script_dir}/reports"
+    mkdir -p "$report_dir"
+    
+    local report_file="${report_dir}/java_cpu_diagnosis_report_$(date +%Y%m%d_%H%M%S).txt"
     
     log_info "=== 生成Java CPU诊断报告 ==="
     log_info "报告文件: $report_file"

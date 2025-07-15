@@ -184,7 +184,7 @@ test_dependencies() {
 
 # 生成测试报告
 generate_test_report() {
-    local report_file="/tmp/arthas_test_report_$(date +%Y%m%d_%H%M%S).txt"
+    local report_file="./arthas/arthas_test_report_$(date +%Y%m%d_%H%M%S).txt"
     
     log_info "生成测试报告: $report_file"
     

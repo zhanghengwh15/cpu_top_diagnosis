@@ -88,7 +88,8 @@ read_config() {
     fi
     
     # 使用临时文件存储配置
-    local temp_file="/tmp/arthas_config_$$"
+    mkdir -p "./arthas"
+    local temp_file="./arthas/arthas_config_$$"
     
     # 解析配置文件并存储到临时文件
     local current_section=""
@@ -544,7 +545,7 @@ analyze_java_process_intelligently() {
     log_info "选择分析策略: $strategy"
     
     # 创建输出目录
-    local output_dir="/tmp/arthas_intelligent_analysis_${pid}_$(date +%Y%m%d_%H%M%S)"
+    local output_dir="./arthas/arthas_intelligent_analysis_${pid}_$(date +%Y%m%d_%H%M%S)"
     mkdir -p "$output_dir"
     
     log_info "分析结果将保存到: $output_dir"
