@@ -83,10 +83,10 @@ check_arthas() {
     
     # 检查arthas-boot.jar是否存在
     local arthas_paths=(
+        "./arthas-boot.jar"
         "/opt/arthas/arthas-boot.jar"
         "/usr/local/arthas/arthas-boot.jar"
         "$HOME/.arthas/arthas-boot.jar"
-        "./arthas-boot.jar"
         "/tmp/arthas/arthas-boot.jar"
     )
     
