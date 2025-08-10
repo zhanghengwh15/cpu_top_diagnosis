@@ -156,7 +156,7 @@ analyze_with_arthas() {
     fi
     
     # 创建Arthas输出目录
-    local output_dir="./arthas/arthas_analysis_${pid}_$(date +%Y%m%d_%H%M%S)"
+    local output_dir="../logs/arthas_analysis_${pid}_$(date +%Y%m%d_%H%M%S)"
     mkdir -p "$output_dir"
     
     log_info "Arthas分析结果将保存到: $output_dir"
